@@ -1,8 +1,13 @@
+import Books from "./Books";
 
-const Home = () => {
+const Home = ({books}) => {
   return (
-    <div>Home</div>
-  )
-}
+    <div className="">
+      <div>
+        <Books books={books}></Books>
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

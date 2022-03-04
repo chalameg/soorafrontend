@@ -1,20 +1,29 @@
 {
-  "posts": [
+  "books": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode",
-      "comments": [
-        {
-          "id": 1,
-          "body": "some comment",
-          "postId": 1
-        }
-      ]
+      "title": "Book 1",
+      "day": "Feb 19 at 3:00PM",
+      "description": "Minim cillum labore tempor aute magna nostrud esse est labore ullamco reprehenderit id consequat ut. Consequat consectetur sit eiusmod aliquip minim nulla aute velit ea veniam. Incididunt eu ut ullamco et esse pariatur irure esse enim id ut culpa velit quis. Cillum mollit ad ea voluptate tempor labore sit. Voluptate ea ullamco excepteur proident reprehenderit laborum nulla consectetur tempor quis. Irure eu cillum proident sit. Velit pariatur magna culpa cupidatat aute aliquip exercitation."
+    },
+    {
+      "id": 2,
+      "title": "Book 2",
+      "day": "Feb 18 at 8:00AM",
+      "description": "Non ullamco occaecat enim dolore in ipsum est do aliquip proident dolor. Sunt dolor aute eiusmod cillum laborum excepteur. Nulla mollit ullamco anim incididunt velit ullamco mollit eu reprehenderit cillum esse aliquip dolore irure. Enim cupidatat laborum veniam minim reprehenderit proident dolore pariatur laborum."
+    },
+    {
+      "title": "Book 3",
+      "day": "feb 32 at 7pm",
+      "description": "Amet consectetur exercitation aute commodo excepteur proident consectetur do anim exercitation. Amet duis laboris id occaecat duis occaecat eiusmod. Velit quis dolore dolor minim incididunt exercitation proident proident excepteur irure sint duis. Consequat cillum anim adipisicing pariatur deserunt aute pariatur voluptate laboris pariatur veniam nisi sunt nisi.",
+      "id": 3
     }
-  ],
-  
-  "profile": {
-    "name": "typicode"
-  }
+    ,
+    {
+      "title": "Book 4",
+      "day": "feb 32 at 7pm",
+      "description": "Amet consectetur exercitation aute commodo excepteur proident consectetur do anim exercitation. Amet duis laboris id occaecat duis occaecat eiusmod. Velit quis dolore dolor minim incididunt exercitation proident proident excepteur irure sint duis. Consequat cillum anim adipisicing pariatur deserunt aute pariatur voluptate laboris pariatur veniam nisi sunt nisi.",
+      "id": 4
+    }
+  ]
 }
