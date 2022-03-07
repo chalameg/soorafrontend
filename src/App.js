@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import { useState, useEffect } from "react";
@@ -9,9 +9,6 @@ import Blog from "./components/Blog";
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [pageName, setPageName] = useState('Home');
-  // const params = useParams()
-  // console.log(params)
 
   useEffect(() => {
     const getBooks = async () => {
@@ -35,7 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="">
-        <Header pageName={pageName}/>
+            <Header/>
 
             <Routes>
               <Route path="/" element={<Home books={books}/>} />

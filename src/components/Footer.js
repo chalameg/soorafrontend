@@ -8,7 +8,7 @@ const Footer = () => {
           <span>Get connected with us on social networks:</span>
         </div>
         <div className="flex justify-center">
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6 text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -25,7 +25,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6 text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -42,7 +42,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6 text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -59,7 +59,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6 text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -76,7 +76,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6 text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -93,7 +93,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="text-gray-600">
+          <a href="#!" className="text-white">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -153,22 +153,22 @@ const Footer = () => {
               Products
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Angular
               </a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 React
               </a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Vue
               </a>
             </p>
             <p>
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Laravel
               </a>
             </p>
@@ -178,22 +178,22 @@ const Footer = () => {
               Useful links
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Pricing
               </a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Settings
               </a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Orders
               </a>
             </p>
             <p>
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 Help
               </a>
             </p>
