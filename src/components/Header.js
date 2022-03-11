@@ -18,7 +18,8 @@ function Header({pageName}) {
                 />
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-4 justify-between">
+                  <div>
                   <Link
                     to="/"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -46,7 +47,25 @@ function Header({pageName}) {
                   >
                     About Us
                   </Link>
+                  
+                  </div>
 
+
+                  <div>
+                  <Link
+                    to="/books"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Books
+                  </Link>
+
+                  <Link
+                    to="/about"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    About Us
+                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
