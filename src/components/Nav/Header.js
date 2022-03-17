@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
-function Header({pageName}) {
+function Header({ pageName }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -18,8 +18,7 @@ function Header({pageName}) {
                 />
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4 justify-between">
-                  <div>
+                <div className="ml-10 flex flex-1 items-baseline space-x-4 justify-between">
                   <Link
                     to="/"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -47,27 +46,23 @@ function Header({pageName}) {
                   >
                     About Us
                   </Link>
-                  
-                  </div>
-
-
-                  <div>
-                  <Link
-                    to="/books"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Books
-                  </Link>
-
-                  <Link
-                    to="/about"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    About Us
-                  </Link>
-                  </div>
                 </div>
               </div>
+            </div>
+            <div className="flex items-baseline justify-end hidden md:block">
+              <Link
+                to="/login"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Login
+              </Link>
+
+              <Link
+                to="/signup"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                SignUp
+              </Link>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
@@ -129,7 +124,7 @@ function Header({pageName}) {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <Link
-                  to="#"
+                  to="/"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Home
@@ -155,6 +150,21 @@ function Header({pageName}) {
                 >
                   About Us
                 </Link>
+
+
+                <Link
+                  to="/login"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Login
+                </Link>
+
+                <Link
+                  to="/signup"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  SignUp
+                </Link>
               </div>
             </div>
           )}
@@ -166,7 +176,6 @@ function Header({pageName}) {
           <h1 className="text-3xl font-bold text-gray-900">{pageName}</h1>
         </div>
       </header> */}
-      
     </div>
   );
 }

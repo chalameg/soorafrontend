@@ -1,4 +1,4 @@
-import Books from "./Books";
+import Books from "./Book/Books";
 
 const Home = ({books}) => {
   return (

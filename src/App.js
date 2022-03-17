@@ -1,11 +1,13 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Nav/Header";
+import Footer from "./components/Nav/Footer";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
-import About from "./components/About";
+import About from "./components/Other/About";
 import { useState, useEffect } from "react";
-import Books from "./components/Books";
-import Blog from "./components/Blog";
+import Books from "./components/Book/Books";
+import Blog from "./components/Book/Blog";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -18,7 +20,6 @@ function App() {
     };
 
     getBooks();
-    // setPageName(params)
   }, []);
 
   const fetchBooks = async () => {
@@ -33,17 +34,15 @@ function App() {
     <BrowserRouter>
       <div className="">
             <Header/>
-
             <Routes>
               <Route path="/" element={<Home books={books}/>} />
+              <Route path="/soora" element={<Home books={books}/>} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/books" element={<Books books={books}/>} />
               <Route path="/about" element={<About />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Register />} />
             </Routes>
-        {/* <main>
-          <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          </div>
-        </main> */}
         <Footer />
       </div>
     </BrowserRouter>
