@@ -1,6 +1,6 @@
 import Header from "./components/Nav/Header";
 import Footer from "./components/Nav/Footer";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/Other/About";
 import { useState, useEffect } from "react";
@@ -32,18 +32,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="">
-            <Header/>
-            <Routes>
-              <Route path="/" element={<Home books={books}/>} />
-              <Route path="/soora" element={<Home books={books}/>} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/books" element={<Books books={books}/>} />
-              <Route path="/about" element={<About />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Register />} />
-            </Routes>
-        <Footer />
+      <div className="bg-bodyColor font-EBGaramond">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home books={books} />} />
+          <Route path="/soora" element={<Home books={books} />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/books" element={<Books books={books} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <Footer/>
       </div>
     </BrowserRouter>
   );

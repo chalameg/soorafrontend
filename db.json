@@ -2,8 +2,8 @@
   "books": [
     {
       "id": 1,
-      "title": "Book 1",
-      "image": "Feb 19 at 3:00PM",
+      "title": "Think big and grow rich",
+      "image": "https://media.istockphoto.com/photos/circuit-blue-board-background-copy-space-computer-data-technology-picture-id1340728386?b=1&k=20&m=1340728386&s=170667a&w=0&h=FQ7GuNOoq7JzCwb4YWJZ3iyMxky5hAaVnFf7VcQ-dA0=",
       "language": "Feb 19 at 3:00PM",
       "page_size": "Feb 19 at 3:00PM",
       "written_year": "Feb 19 at 3:00PM",
@@ -13,8 +13,8 @@
     },
     {
       "id": 2,
-      "title": "Book 1",
-      "image": "Feb 19 at 3:00PM",
+      "title": "Hirriba Abjuu Keessa",
+      "image": "https://media.istockphoto.com/photos/thinking-team-picture-id1324905417?b=1&k=20&m=1324905417&s=170667a&w=0&h=MP821cJNytkBzMjL30xE2BFllzj59IX9q3Y4Ak34Ls8=",
       "language": "Feb 19 at 3:00PM",
       "page_size": "Feb 19 at 3:00PM",
       "written_year": "Feb 19 at 3:00PM",
@@ -24,8 +24,8 @@
     },
     {
       "id": 3,
-      "title": "Book 1",
-      "image": "Feb 19 at 3:00PM",
+      "title": "The Boundry of Everything",
+      "image": "https://media.istockphoto.com/photos/global-connection-picture-id1335295270?b=1&k=20&m=1335295270&s=170667a&w=0&h=PNF6QH5FyD_XvDbn4nHtIVKdmmlN86fCHTgwvkZYvHA=",
       "language": "Feb 19 at 3:00PM",
       "page_size": "Feb 19 at 3:00PM",
       "written_year": "Feb 19 at 3:00PM",
@@ -35,8 +35,8 @@
     },
     {
       "id": 4,
-      "title": "Book 1",
-      "image": "Feb 19 at 3:00PM",
+      "title": "Novel is Outdated",
+      "image": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
       "language": "Feb 19 at 3:00PM",
       "page_size": "Feb 19 at 3:00PM",
       "written_year": "Feb 19 at 3:00PM",
@@ -46,8 +46,8 @@
     },
     {
       "id": 5,
-      "title": "Book 1",
-      "image": "Feb 19 at 3:00PM",
+      "title": "Think it is more than you think",
+      "image": "https://media.istockphoto.com/photos/people-communication-network-concept-social-media-picture-id1315599813?b=1&k=20&m=1315599813&s=170667a&w=0&h=nqx7onO0Ivlkun71lTV_9QLISj8Y5Tpa10lQqAvEAjY=",
       "language": "Feb 19 at 3:00PM",
       "page_size": "Feb 19 at 3:00PM",
       "written_year": "Feb 19 at 3:00PM",
