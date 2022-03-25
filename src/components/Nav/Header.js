@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Transition, Combobox } from "@headlessui/react";
+import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
-function Header({ pageName }) {
+function Header({ user }) {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <div>
       <nav className="bg-indigo-600">
@@ -50,21 +50,30 @@ function Header({ pageName }) {
                 </div>
               </div>
             </div>
-            <div className="flex items-baseline justify-end hidden md:block">
-              <Link
-                to="/login"
-                className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Login
-              </Link>
+            {user ? (
+              <div className="flex items-baseline justify-end hidden md:block">
+                <Link
+                  to="/login"
+                  className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Login
+                </Link>
 
+                <Link
+                  to="/register"
+                  className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Register
+                </Link>
+              </div>
+            ) : (
               <Link
-                to="/register"
+                to="/"
                 className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >
-                Register
+                Logout
               </Link>
-            </div>
+            )}
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -152,26 +161,35 @@ function Header({ pageName }) {
                   About Us
                 </Link>
 
-                <Link
-                  to="/login"
-                  className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Login
-                </Link>
+                {user ? (
+                  <span>
+                    <Link
+                      to="/login"
+                      className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Login
+                    </Link>
 
-                <Link
-                  to="/register"
-                  className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Register
-                </Link>
+                    <Link
+                      to="/register"
+                      className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Register
+                    </Link>
+                  </span>
+                ) : (
+                  <Link
+                    to="/"
+                    className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Logout
+                  </Link>
+                )}
               </div>
             </div>
           )}
         </Transition>
       </nav>
-
-     
     </div>
   );
 }

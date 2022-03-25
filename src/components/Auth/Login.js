@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import GoogleLogin from 'react-google-login';
+import axios from 'axios'
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -39,6 +41,20 @@ const Login = () => {
     }));
   };
 
+  const responseGoogle = (response) => {
+    console.log(response);
+
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8000/api/googlelogin',
+      data: {
+        tokenId: response.tokenId,
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  }
+
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -66,14 +82,14 @@ const Login = () => {
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label for="email-address" className="sr-only">
+              <label  className="sr-only">
                 Email address
               </label>
               <input
                 id="username"
                 name="username"
                 type="text"
-                autocomplete="email"
+                autoComplete="email"
                 // required
                 className={
                   "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" +
@@ -84,18 +100,18 @@ const Login = () => {
                 onChange={handleInputChange.bind(this)}
               />
               {errors.hasOwnProperty("username") && (
-                <p class="text-red-500 text-xs italic">{errors.username}</p>
+                <p className="text-red-500 text-xs italic">{errors.username}</p>
               )}
             </div>
             <div>
-              <label for="password" className="sr-only">
+              <label  className="sr-only">
                 Password
               </label>
               <input
                 id="password"
                 name="password"
                 type="password"
-                autocomplete="current-password"
+                autoComplete="current-password"
                 // required
                 className={
                   "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" +
@@ -106,7 +122,7 @@ const Login = () => {
                 onChange={handleInputChange.bind(this)}
               />
               {errors.hasOwnProperty("password") && (
-                <p class="text-red-500 text-xs italic">{errors.password}</p>
+                <p className="text-red-500 text-xs italic">{errors.password}</p>
               )}
             </div>
           </div>
@@ -120,7 +136,7 @@ const Login = () => {
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
               ></input>
               <label
-                for="remember-me"
+              
                 className="ml-2 block text-sm text-gray-900"
               >
                 {" "}
@@ -155,9 +171,9 @@ const Login = () => {
                   aria-hidden="true"
                 >
                   <path
-                    fill-rule="evenodd"
+                    // fill-rule="evenodd"
                     d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                    clip-rule="evenodd"
+                    // clip-rule="evenodd"
                   />
                 </svg>
               </span>
@@ -166,16 +182,16 @@ const Login = () => {
           </div>
 
           <div>
-            <div class="flex items-center">
+            <div className="flex items-center">
               <div className="bg-gray-400 h-px w-2/6"></div>
               <div className="w-2/6 px-2 text-gray-500">Or continue with</div>
               <div className="bg-gray-400 h-px w-2/6"></div>
             </div>
           </div>
           <div>
-            <div class="grid grid-cols-3">
+            <div className="grid grid-cols-3">
               <div className="justify-self-start">
-                <button
+                {/* <button
                   type="button"
                   class="text-white bg-[#de5246] hover:bg-[#de5246]/90 focus:ring-4 focus:ring-[#de5246]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#de5246]/55"
                 >
@@ -195,15 +211,22 @@ const Login = () => {
                     ></path>
                   </svg>
                   Google
-                </button>
+                </button> */}
+                <GoogleLogin
+                  clientId="450824895681-6uar4cut594oj6lfcttojh7l4aqfup7l.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />,
               </div>
               <div className="justify-self-center">
                 <button
                   type="button"
-                  class="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55"
+                  className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55"
                 >
                   <svg
-                    class="mr-2 -ml-1 w-4 h-4"
+                    className="mr-2 -ml-1 w-4 h-4"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
@@ -223,10 +246,10 @@ const Login = () => {
               <div className="justify-self-end">
                 <button
                   type="button"
-                  class="text-white bg-[#1da1f2] hover:bg-[#1da1f2]/90 focus:ring-4 focus:ring-[#1da1f2]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55"
+                  className="text-white bg-[#1da1f2] hover:bg-[#1da1f2]/90 focus:ring-4 focus:ring-[#1da1f2]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55"
                 >
                   <svg
-                    class="mr-2 -ml-1 w-4 h-4"
+                    className="mr-2 -ml-1 w-4 h-4"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
