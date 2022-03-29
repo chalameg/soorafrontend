@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import GoogleLogin from 'react-google-login';
-import axios from 'axios'
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -26,7 +24,7 @@ const Login = () => {
 
     if (credentials.password === "") {
       errors = Object.assign(errors, {
-        password: "This field is required p",
+        password: "This field is required",
       });
     }
 
@@ -41,18 +39,8 @@ const Login = () => {
     }));
   };
 
-  const responseGoogle = (response) => {
-    console.log(response);
-
-    axios({
-      method: 'POST',
-      url: 'http://localhost:8000/api/googlelogin',
-      data: {
-        tokenId: response.tokenId,
-      }
-    }).then(res => {
-      console.log(res)
-    })
+  const google = ()=>{
+    window.open('http://localhost:8000/auth/google', "_self")
   }
 
   return (
@@ -191,12 +179,12 @@ const Login = () => {
           <div>
             <div className="grid grid-cols-3">
               <div className="justify-self-start">
-                {/* <button
-                  type="button"
-                  class="text-white bg-[#de5246] hover:bg-[#de5246]/90 focus:ring-4 focus:ring-[#de5246]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#de5246]/55"
+                <button
+                  type="button" onClick={google}
+                  className="text-white bg-[#de5246] hover:bg-[#de5246]/90 focus:ring-4 focus:ring-[#de5246]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#de5246]/55"
                 >
                   <svg
-                    class="mr-2 -ml-1 w-4 h-4"
+                    className="mr-2 -ml-1 w-4 h-4"
                     aria-hidden="true"
                     focusable="false"
                     data-prefix="fab"
@@ -211,14 +199,8 @@ const Login = () => {
                     ></path>
                   </svg>
                   Google
-                </button> */}
-                <GoogleLogin
-                  clientId="450824895681-6uar4cut594oj6lfcttojh7l4aqfup7l.apps.googleusercontent.com"
-                  buttonText="Login"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  cookiePolicy={'single_host_origin'}
-                />,
+                </button>
+               
               </div>
               <div className="justify-self-center">
                 <button

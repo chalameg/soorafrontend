@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
-function Header({ user }) {
+function Header({ user, logout }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,11 +12,13 @@ function Header({ user }) {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                  alt="Workflow"
-                />
+                <Link to="/">
+                  <img
+                    className="h-8 w-8"
+                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    alt="Workflow"
+                  />
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex flex-1 items-baseline space-x-4 justify-between">
@@ -50,7 +52,7 @@ function Header({ user }) {
                 </div>
               </div>
             </div>
-            {user ? (
+            {!user ? (
               <div className="flex items-baseline justify-end hidden md:block">
                 <Link
                   to="/login"
@@ -67,12 +69,20 @@ function Header({ user }) {
                 </Link>
               </div>
             ) : (
-              <Link
-                to="/"
-                className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Logout
-              </Link>
+              <div className="hidden md:flex">
+                <span > <img className="rounded-full my-1 mx-1" img height={30} width={30} src={user.photos[0].value} alt=""/></span>
+                <span className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  {user.displayName}
+                </span>
+                
+                <Link
+                  to="/"
+                  onClick={logout}
+                  className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Logout
+                </Link>
+              </div>
             )}
             <div className="-mr-2 flex md:hidden">
               <button
@@ -161,7 +171,7 @@ function Header({ user }) {
                   About Us
                 </Link>
 
-                {user ? (
+                {!user ? (
                   <span>
                     <Link
                       to="/login"
@@ -178,12 +188,18 @@ function Header({ user }) {
                     </Link>
                   </span>
                 ) : (
-                  <Link
-                    to="/"
-                    className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
-                    Logout
-                  </Link>
+                  <div>
+                    <span className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                    {user.displayName}
+                    </span>
+                    <span> <img height={30} width={30} src={user.photos[0].value} alt=""/></span>
+                    <Link
+                      to="/"
+                      className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      Logout
+                    </Link>
+                  </div>
                 )}
               </div>
             </div>
