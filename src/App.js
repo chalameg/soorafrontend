@@ -11,18 +11,28 @@ import Register from "./components/Auth/Register";
 import BookDetails from "./components/Book/BookDetails";
 
 function App() {
-  const user = false;
-
+  const [user, setUser] = useState(null)
+  // const user = true;
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
       const booksFromServer = await fetchBooks();
-
+      
       setBooks(booksFromServer);
     };
 
     getBooks();
+
+    const getUser = async () => {
+      const userFromServer = await fetchUser();
+
+      setUser(userFromServer.user);
+
+      console.log(userFromServer.user)
+    };
+
+    getUser();
   }, []);
 
   const fetchBooks = async () => {
@@ -33,10 +43,34 @@ function App() {
     return data;
   };
 
+  const fetchUser = async () => {
+    const res = await fetch("http://localhost:8000/auth/login/success", 
+    {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "Application/json",
+        "Content-Type": "Application/json",
+        "Access-Control-Allow-Credentials": true
+      }
+    }
+    )
+
+    if(res.status === 200){
+      return res.json();
+    }
+    throw new Error("Authentication failed.")
+  }
+
+  const logout = () => {
+    window.open("http://localhost:8000/auth/logout", "_self")
+    console.log('Logged out!')
+  }
+
   return (
     <BrowserRouter>
       <div className="bg-bodyColor font-EBGaramond">
-        <Header user={user} />
+        <Header user={user} logout={logout}/>
         <Routes>
           <Route path="/" element={<Home books={books} />} />
           <Route path="/blog" element={<Blog />} />
@@ -47,7 +81,7 @@ function App() {
             path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
           />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
         </Routes>
         <Footer />
       </div>
