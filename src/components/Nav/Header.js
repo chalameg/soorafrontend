@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 
-function Header({ user, logout }) {
+function Header({ user }) {
   const [isOpen, setIsOpen] = useState(false);
+  
+  const logout = () => {
+    window.open("http://localhost:8000/auth/logout", "_self")
+    console.log('Logged out!')
+  }
 
   return (
     <div>

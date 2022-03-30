@@ -62,15 +62,11 @@ function App() {
     throw new Error("Authentication failed.")
   }
 
-  const logout = () => {
-    window.open("http://localhost:8000/auth/logout", "_self")
-    console.log('Logged out!')
-  }
 
   return (
     <BrowserRouter>
       <div className="bg-bodyColor font-EBGaramond">
-        <Header user={user} logout={logout}/>
+        <Header user={user}/>
         <Routes>
           <Route path="/" element={<Home books={books} />} />
           <Route path="/blog" element={<Blog />} />
