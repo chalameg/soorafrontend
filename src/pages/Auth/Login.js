@@ -1,8 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [errors, setErrors] = useState({});
@@ -11,14 +15,30 @@ const Login = () => {
     evt.preventDefault();
 
     setErrors((errors) => ({ ...validateCredentials(credentials) }));
+
+    console.log(credentials)
+    axios
+    .post("http://localhost:8000/auth/login", {
+      email: credentials.email,
+      password: credentials.password
+    })
+    .then((response) => {
+      console.log(response);
+      if (response.data.token) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+
+      navigate('/')
+      window.location.reload();
+    });
   };
 
   const validateCredentials = (credentials) => {
     let errors = {};
 
-    if (credentials.username === "") {
+    if (credentials.email === "") {
       errors = Object.assign(errors, {
-        username: "This field is required",
+        email: "This field is required",
       });
     }
 
@@ -37,6 +57,7 @@ const Login = () => {
       ...credentials,
       [evt.target.name]: evt.target.value,
     }));
+    
   };
 
   const google = ()=>{
@@ -74,21 +95,21 @@ const Login = () => {
                 Email address
               </label>
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
                 autoComplete="email"
                 // required
                 className={
                   "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" +
-                  (errors.hasOwnProperty("username") ? "border-red-500" : "")
+                  (errors.hasOwnProperty("email") ? "border-red-500" : "")
                 }
                 placeholder="Email address"
-                value={credentials.username}
+                value={credentials.email}
                 onChange={handleInputChange.bind(this)}
               />
-              {errors.hasOwnProperty("username") && (
-                <p className="text-red-500 text-xs italic">{errors.username}</p>
+              {errors.hasOwnProperty("email") && (
+                <p className="text-red-500 text-xs italic">{errors.email}</p>
               )}
             </div>
             <div>
@@ -145,10 +166,7 @@ const Login = () => {
           </div>
 
           <div>
-            <button
-              // type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
+            <button  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 {/* <!-- Heroicon name: solid/lock-closed --> */}
                 <svg
@@ -159,9 +177,7 @@ const Login = () => {
                   aria-hidden="true"
                 >
                   <path
-                    // fill-rule="evenodd"
                     d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                    // clip-rule="evenodd"
                   />
                 </svg>
               </span>

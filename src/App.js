@@ -1,14 +1,14 @@
-import Header from "./components/Nav/Header";
-import Footer from "./components/Nav/Footer";
+import Header from "./layouts/Header";
+import Footer from "./layouts/Footer";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/Other/About";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import { useState, useEffect } from "react";
-import Books from "./components/Book/Books";
-import Blog from "./components/Book/Blog";
-import Login from "./components/Auth/Login";
-import Register from "./components/Auth/Register";
-import BookDetails from "./components/Book/BookDetails";
+import Books from "./pages/Book/Books";
+import Blog from "./pages/Book/Blog";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import BookDetails from "./pages/Book/BookDetails";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -16,6 +16,10 @@ function App() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
+    setUser(localStorage.getItem("user"))
+    // localStorage.getItem("user")!=null ? setUser(localStorage.getItem("user")) : logout();
+
+    console.log(user)
     const getBooks = async () => {
       const booksFromServer = await fetchBooks();
       
@@ -63,7 +67,8 @@ function App() {
   }
 
   const logout = () => {
-    window.open("http://localhost:8000/auth/logout", "_self")
+    localStorage.removeItem('user')
+    window.open("http://localhost:8000/auth/logout", "_self");
     console.log('Logged out!')
   }
 
