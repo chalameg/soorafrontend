@@ -63,6 +63,10 @@ const Login = () => {
   const google = ()=>{
     window.open('http://localhost:8000/auth/google', "_self")
   }
+  
+  const facebook = ()=>{
+    window.open('http://localhost:8000/auth/facebook', "_self")
+  }
 
   return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -220,7 +224,7 @@ const Login = () => {
               </div>
               <div className="justify-self-center">
                 <button
-                  type="button"
+                  type="button" onClick={facebook}
                   className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55"
                 >
                   <svg

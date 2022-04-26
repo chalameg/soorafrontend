@@ -75,7 +75,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="bg-bodyColor font-EBGaramond">
-        <Header user={user} logout={logout}/>
+        <Header user={user}/>
         <Routes>
           <Route path="/" element={<Home books={books} />} />
           <Route path="/blog" element={<Blog />} />
