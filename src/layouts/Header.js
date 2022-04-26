@@ -75,9 +75,9 @@ function Header({ user }) {
               </div>
             ) : (
               <div className="hidden md:flex">
-                <span > <img className="rounded-full my-1 mx-1" img height={30} width={30} src={user.photos[0].value} alt=""/></span>
+                {/* <span > <img className="rounded-full my-1 mx-1" img height={30} width={30} src={user.photos[0].value?user.photos[0].value:""} alt=""/></span> */}
                 <span className="text-gray-300 hover:bg-indigo-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  {user.displayName}
+                  {user.displayName!=null?user.displayName:"Mr. Anonymoios"}
                 </span>
                 
                 <Link
@@ -195,9 +195,9 @@ function Header({ user }) {
                 ) : (
                   <div>
                     <span className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                    {user.displayName}
+                    {user.displayName!=null?user.displayName:"Mr. Anonymoios"}
                     </span>
-                    <span> <img height={30} width={30} src={user.photos[0].value} alt=""/></span>
+                    {/* <span> <img height={30} width={30} src={user.photos[0].value?user.photos[0].value:""} alt=""/></span> */}
                     <Link
                       to="/"
                       className="text-gray-300 hover:bg-indigo-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"

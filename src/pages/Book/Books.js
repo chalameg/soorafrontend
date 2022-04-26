@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Book from "./Book";
+import Book from "../../components/Book";
 import { Combobox } from "@headlessui/react";
 
 const Books = ({ books }) => {
